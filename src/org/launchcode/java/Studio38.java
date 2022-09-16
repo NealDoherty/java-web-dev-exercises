@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static java.lang.Character.isAlphabetic;
+
 public class Studio38 {
 
         public static void main(String[] args) {
@@ -28,13 +30,13 @@ public class Studio38 {
             String [] searchText = inputText.split("");
 
             for(String i:searchText){
-                if(characters.containsKey(i))
-                {
-                    characters.merge(i,1,Integer::sum);
-                }
-                else
-                {
-                    characters.put(i,1);
+
+                if(isAlphabetic(i.charAt(0))) {
+                    if (characters.containsKey(i)) {
+                        characters.merge(i, 1, Integer::sum);
+                    } else {
+                        characters.put(i, 1);
+                    }
                 }
             }
 
